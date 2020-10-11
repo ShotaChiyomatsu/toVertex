@@ -1,4 +1,4 @@
-# toVertex
+# toVertex Tool
 
 『使用について』
 
