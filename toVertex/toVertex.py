@@ -58,7 +58,7 @@ class Gui(QDialog):
         self.setStyleSheet(backColor)
         self.createGroup.setStyleSheet(groupColor)
                       
-        # output
+        # Output
         self.outputLayout = QVBoxLayout(self)
         self.outputLayout.addWidget(self.createGroup)
         # Connect
@@ -73,9 +73,9 @@ class Gui(QDialog):
         cmds.undoInfo(openChunk=True)
         selection = cmds.ls(sl=True)
         items = selection[0].split(".", 1)
+        # Get Componants
         component = []
         try:
-            # Get Componants
             if cmds.objectType(items[0]) == "mesh":
                 vtxList = cmds.filterExpand(sm=31)
                 for i in range(len(vtxList)):
