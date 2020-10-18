@@ -6,7 +6,6 @@ from PySide2.QtCore import Qt
 from shiboken2 import wrapInstance
 from maya import OpenMayaUI
 import pymel.core.datatypes as dt
-import string
 #-------------------------------------------------------
 # Base Window
 #-------------------------------------------------------
@@ -76,29 +75,22 @@ class Gui(QDialog):
         # Get Componants
         component = []
         try:
-            if cmds.objectType(items[0]) == "mesh":
-                vtxList = cmds.filterExpand(sm=31)
-                for i in range(len(vtxList)):
-                    vtx = cmds.xform(vtxList[i], ws=True, q=True, t=True)
-                    component.append(dt.Vector(vtx[0], vtx[1], vtx[2]))
-                    
-            else:
-                cvList = cmds.filterExpand(sm=28)
-                for i in range(len(cvList)):
-                    cv = cmds.xform(cvList[i], ws=True, q=True, t=True)
-                    component.append(dt.Vector(cv[0], cv[1], cv[2]))
-        
-        except:
             vtxList = cmds.filterExpand(sm=31)
             for i in range(len(vtxList)):
                 vtx = cmds.xform(vtxList[i], ws=True, q=True, t=True)
                 component.append(dt.Vector(vtx[0], vtx[1], vtx[2]))
+                 
+        except:
+            cvList = cmds.filterExpand(sm=28)
+            for i in range(len(cvList)):
+                cv = cmds.xform(cvList[i], ws=True, q=True, t=True)
+                component.append(dt.Vector(cv[0], cv[1], cv[2]))
             
         # Error
         if len(component) > 25 and self.widgets[2].currentText() == "A-Z" or \
             len(component) > 25 and self.widgets[2].currentText() == "a-z":
-            
             print("When using Alphabet for suffixes Must not exceed 26 vertices"),
+      
         # Create
         else:
             for i in range(len(component)):
