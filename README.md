@@ -3,6 +3,9 @@
 
 頂点のある位置にロケーターやジョイントを作成出来るMaya用のツールです。
 
+# 実行
+toVertex.pyのコードをスクリプトエディタのPythonタブに張り付けて実行。
+
 # 使い方
 ・ロケーターやジョイントの作成。
 ![toVertex_01](https://user-images.githubusercontent.com/63567522/107173113-5dbfcc00-6a0a-11eb-9c1c-b0a63bf4c345.gif)
