@@ -15,64 +15,62 @@ def baseWindow():
 #-------------------------------------------------------
 # Main
 #-------------------------------------------------------  
-backColor = "background:qlineargradient(x2:1, y1:0, x2:1, y2:1, stop:0.5#2b5876 stop:0.8#4e4376)"
-groupColor = "background:rgba(158, 200, 226, 0.2);color:#f5f5f5;border-style:solid;border-width:0px;border-color:#f5f5f5;border-radius:2px;"
-editColor = "background:rgba(158, 200, 226, 0.2);color:#f5f5f5;border-color:#f5f5f5;font-weight:bold"
-                   
+backColor = "background:qlineargradient(x2:1, y1:0, x2:1, y2:1, stop:0.4#659999 stop:0.8#f4791f)"
+widgetColor = "background:rgba(158, 200, 226, 0.3);color:#f5f5f5;border-color:#f5f5f5;font-weight:bold"
+                  
 class Gui(QDialog):
     
     def __init__(self, parent=baseWindow()):
         super(Gui, self).__init__(parent)
         self.setWindowFlags(Qt.Dialog|Qt.WindowCloseButtonHint)
-        self.setWindowTitle("To Vertex ver1.0")
+        self.setWindowTitle("To Vertex ver2.0")
         self.design()
+        self.alphabetList()
     #---------------------------------------------------
     # Design
     #---------------------------------------------------
     def design(self):
-        # Create
-        self.createLayout = QHBoxLayout()
-        self.createGroup = QGroupBox()
-        self.createGroup.setLayout(self.createLayout)
+        self.setStyleSheet(backColor)
+        self.outputLayout = QGridLayout(self)
         self.widgets = []
-        for i in range(3):
+        for i in range(4):
+            # Widget
             if i == 0:
                 self.widgets.append(QComboBox())
                 self.widgets[0].addItems(["Locator", "Joint"])
-                self.widgets[0].setFixedSize(75, 20)
-                self.createLayout.addWidget(self.widgets[0])
-            
+                self.widgets[0].setFixedSize(80, 25)
             elif i == 1:
                 self.widgets.append(QLineEdit())
-                self.createLayout.addWidget(self.widgets[1])
-            
             elif i == 2:
                 self.widgets.append(QComboBox())
                 self.widgets[2].addItems(["0-9", "A-Z", "a-z"])
-                self.widgets[2].setFixedSize(50, 20)
-                self.createLayout.addWidget(self.widgets[2])
+                self.widgets[2].setFixedSize(50, 25)
+            elif i == 3:
+                self.widgets.append(QPushButton("Chain"))
             
-            self.widgets[i].setStyleSheet(editColor)
+            # Layout
+            if i <= 2:
+                self.outputLayout.addWidget(self.widgets[i], 0, i)
+            elif i == 3:
+                self.outputLayout.addWidget(self.widgets[i], 1, 0, 1, 3)
+   
+            self.widgets[i].setStyleSheet(widgetColor)
         
-        self.setStyleSheet(backColor)
-        self.createGroup.setStyleSheet(groupColor)
-                      
-        # Output
-        self.outputLayout = QVBoxLayout(self)
-        self.outputLayout.addWidget(self.createGroup)
         # Connect
         self.widgets[1].returnPressed.connect(self.create)
-        # Alphabet
-        self.ALPHALIST = [chr(i) for i in range(65,65+26)]
-        self.alphalist = [chr(i) for i in range(97,97+26)]
+        self.widgets[3].clicked.connect(self.chain)
     #---------------------------------------------------
     # Processing
-    #---------------------------------------------------    
+    #---------------------------------------------------
+    def alphabetList(self):
+        self.ALPHALIST = [chr(i) for i in range(65,65+26)]
+        self.alphalist = [chr(i) for i in range(97,97+26)]  
+
     def create(self):
         cmds.undoInfo(openChunk=True)
         selection = cmds.ls(sl=True)
         items = selection[0].split(".", 1)
-        # Get Componants
+        # Get Components
         component = []
         try:
             vtxList = cmds.filterExpand(sm=31)
@@ -89,8 +87,9 @@ class Gui(QDialog):
         # Error
         if len(component) > 25 and self.widgets[2].currentText() == "A-Z" or \
             len(component) > 25 and self.widgets[2].currentText() == "a-z":
+            
             print("When using Alphabet for suffixes Must not exceed 26 vertices"),
-      
+            
         # Create
         else:
             for i in range(len(component)):
@@ -125,6 +124,17 @@ class Gui(QDialog):
             
             cmds.select(None)            
             cmds.undoInfo(closeChunk=True)
+
+    def chain(self):
+        cmds.undoInfo(openChunk=True)
+        selection = cmds.ls(sl=True)
+        try:
+            for i in range(len(selection)-1):
+                cmds.parent(selection[i+1], selection[i])
+        except:
+            cmds.undo()
+            print("There is a node with the same name"), 
+        cmds.undoInfo(closeChunk=True)
 #-------------------------------------------------------
 # Show
 #-------------------------------------------------------
