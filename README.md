@@ -5,3 +5,9 @@
 
 # 使い方
 ![toVertex_01](https://user-images.githubusercontent.com/63567522/107173113-5dbfcc00-6a0a-11eb-9c1c-b0a63bf4c345.gif)
+
+
+1. LoacatorかJointを選択する。
+
+
+2. 名前を入力する。
