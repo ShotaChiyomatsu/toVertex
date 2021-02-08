@@ -95,29 +95,23 @@ class Gui(QDialog):
             for i in range(len(component)):
                 cmds.select(None)
                 if self.widgets[0].currentText() == "Locator":
-                    
                     if self.widgets[2].currentText() == "0-9":
                         cmds.spaceLocator(n=self.widgets[1].text() + str(i), a=True)
-                        cmds.move(component[i][0], component[i][1], component[i][2])
-                    
+                        cmds.move(component[i][0], component[i][1], component[i][2]) 
                     elif self.widgets[2].currentText() == "A-Z":
                         cmds.spaceLocator(n=self.widgets[1].text() + self.ALPHALIST[i], a=True)
                         cmds.move(component[i][0], component[i][1], component[i][2])
-                    
                     elif self.widgets[2].currentText() == "a-z":
                         cmds.spaceLocator(n=self.widgets[1].text() + self.alphalist[i], a=True)
                         cmds.move(component[i][0], component[i][1], component[i][2])
                 
                 elif self.widgets[0].currentText() == "Joint":
-                    
                     if self.widgets[2].currentText() == "0-9":
                         cmds.joint(n=self.widgets[1].text() + str(i), 
                         p=[component[i][0], component[i][1], component[i][2]])
-                    
                     elif self.widgets[2].currentText() == "A-Z":
                         cmds.joint(n=self.widgets[1].text() + self.ALPHALIST[i], 
                         p=[component[i][0], component[i][1], component[i][2]])
-                    
                     elif self.widgets[2].currentText() == "a-z":
                         cmds.joint(n=self.widgets[1].text() + self.alphalist[i], 
                         p=[component[i][0], component[i][1], component[i][2]])
