@@ -10,7 +10,7 @@ toVertex.pyのコードをスクリプトエディタのPythonタブに張り付
 ・ロケーターやジョイントの作成。
 ![toVertex_01](https://user-images.githubusercontent.com/63567522/107173113-5dbfcc00-6a0a-11eb-9c1c-b0a63bf4c345.gif)
 
-1. LoacatorかJointを選択する。
+1. LocatorかJointを選択する。
 
 ![toVertex02](https://user-images.githubusercontent.com/63567522/107173370-f9513c80-6a0a-11eb-9b51-16800040ec19.png)
 
