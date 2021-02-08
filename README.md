@@ -23,7 +23,7 @@ toVertex.pyのコードをスクリプトエディタのPythonタブに張り付
 
 ![toVertex03](https://user-images.githubusercontent.com/63567522/107173455-2aca0800-6a0b-11eb-9f37-acdb576154ae.png)
 
-2. 名前の入力欄の上でEnterKeyを押す。
+4. 名前の入力欄の上でEnterKeyを押す。
 
 ・鎖状に親子付け。
 ![toVeretx_OK](https://user-images.githubusercontent.com/63567522/107174510-bf356a00-6a0d-11eb-921b-40b2b4d815cb.gif)
