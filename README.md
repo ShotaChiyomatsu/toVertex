@@ -14,7 +14,8 @@ toVertex.pyのコードをスクリプトエディタのPythonタブに張り付
 
 1. LoacatorかJointを選択する。
 
-![toVertex04](https://user-images.githubusercontent.com/63567522/107176262-34a33980-6a12-11eb-95b1-7e3c6f3c5a2a.png)
+![toVertex04](https://user-images.githubusercontent.com/63567522/107176352-77651180-6a12-11eb-83db-ca8a04ee53b8.png)
+
 2. 名前を入力する。
 
 ![toVertex03](https://user-images.githubusercontent.com/63567522/107173455-2aca0800-6a0b-11eb-9f37-acdb576154ae.png)
