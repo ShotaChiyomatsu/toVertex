@@ -1,5 +1,5 @@
 # toVertex ver2.0
-![toVertex](https://user-images.githubusercontent.com/63567522/107164097-c601b400-69f0-11eb-8f70-68e97f4869c1.png)
+![toVertex01](https://user-images.githubusercontent.com/63567522/107171465-38c95a00-6a06-11eb-8ba6-bf978433fafb.png)
 
 頂点のある位置にロケーターやジョイントを作成出来るMaya用のツールです。
 
