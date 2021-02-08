@@ -32,5 +32,5 @@ toVertex.pyのコードをスクリプトエディタのPythonタブに張り付
 
 2. Chainと書いてあるボタンを押す。
 
-※下記の選択方法では、正しく親子付けできません。
+※下記の選択方法を使用した場合や同名のノードが存在する場合は、正しく親子付けできません。
 ![toVertex_NG](https://user-images.githubusercontent.com/63567522/107174514-c3fa1e00-6a0d-11eb-9c92-1bf12027de6e.gif)
