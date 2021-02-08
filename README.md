@@ -10,5 +10,11 @@
 
 1. LoacatorかJointを選択する。
 
-
 2. 名前を入力する。
+
+![toVertex03](https://user-images.githubusercontent.com/63567522/107173455-2aca0800-6a0b-11eb-9f37-acdb576154ae.png)
+
+3. 連番の種類を数字、アルファベット大文字、アルファベット小文字の中から選択する。
+※アルファベットは26個まで。
+
+2. 名前入力欄の上でEnterKeyを押す。
